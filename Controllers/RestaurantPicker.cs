@@ -2,8 +2,8 @@
 //10/25/2022
 //Restaurant Picker
 //the user will input a type of food and depending on their answer will 
-// generate a random restaurant to eat at.
-//Peer Reviewed by:
+//generate a random restaurant to eat at.
+//Peer Reviewed by: Marcel R- The program worked well. It took two imputs to narrow down what to get to eat. I like how it returns that wasn't an option if entered incorrectly. Really good work! :D
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +13,10 @@ namespace FergusonIRestaurantPickerEndPoints.Controllers;
 [Route("[controller]")]
 public class RestaurantPickerController : ControllerBase
 {
+//Resteruant Options
+//asain - pho / sushi
+//fast - burgers / pizza
+// sit down - dinner / breakfast
 
     [HttpGet]
     [Route("RestaurantPicker/{input}/{inputfood}")]
@@ -23,7 +27,7 @@ public class RestaurantPickerController : ControllerBase
         int num2 = 0;
         bool tro = true;
         string food = "";
-        string[] Asian = { "Ramen King", "Legendary Wok", "Pho King", "Phu Lucky", "Fox Creek Soup spot", "Hana Sushi", "Domo's", "Luu's Sushi Bowl", "Tora Sushi", "Fuji Sushi" };
+        string[] Asian = { "Ramen King", "Legendary Ramen", "Pho King", "Phu Lucky", "Fox Creek Soup spot", "Hana Sushi", "Domo's", "Luu's Sushi Bowl", "Tora Sushi", "Fuji Sushi" };
         string[] fastFood = { "Mcdonalds", "Five Guys", "Jack N the Box", "Burger King", "Wendy's", "PizzaHut", "Dominoes", "fired Pizza", "Little Ceaser's", "Costco Pizza" };
         string[] SitDown = { "BJ's", "Outback", "Texas RoadHouse", "Chili's", "Olive Garden", "Black Bear Diner", "Mimosa Gourmet", "Chuck's", "HuckleBerries", "IHOP" };
 
@@ -33,11 +37,11 @@ public class RestaurantPickerController : ControllerBase
 
         tro = Int32.TryParse(input, out num1);
 
-        if (input == "asian food" || input == "fast food" || input == "sit down")
+        if (input == "asian" || input == "fast" || input == "sit down")
         {
             if (tro == false)
             {
-                if (input == "asian food")
+                if (input == "asian")
                 {
                     if (inputfood != "pho" && inputfood != "sushi")
                     {
@@ -69,7 +73,7 @@ public class RestaurantPickerController : ControllerBase
                     }
                 }
 
-                if (input == "fast food")
+                if (input == "fast")
                 {
                     if (inputfood != "burgers" && inputfood != "pizza")
                     {
